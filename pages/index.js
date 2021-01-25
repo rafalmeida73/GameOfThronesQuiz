@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 import db from '../db.json';
-import Widget from '../src/components/Widget'
-import QuizLogo from '../src/components/QuizLogo'
-import QuizBackground from '../src/components/QuizBackground'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
+import Widget from '../src/components/Widget';
+import QuizLogo from '../src/components/QuizLogo';
+import QuizBackground from '../src/components/QuizBackground';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import BackgroundImage from '../src/components/BackgroundImage';
 
-export const QuizContainer = styled.div`
+const QuizContainer = styled.div`
   width: 100%;
   max-width: 350px;
   padding-top: 45px;
@@ -17,30 +18,38 @@ export const QuizContainer = styled.div`
   }
 `;
 
+const Content = styled.div`
+ display: flex;
+ width: 100%;
+`;
+
 export default function Home() {
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <QuizContainer>
-        <QuizLogo />
-        <Widget>
-          <Widget.Header>
-            <h1>{db.title}</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>{db.description}</p>
-          </Widget.Content>
-        </Widget>
+    <QuizBackground >
+      <Content>
+        <QuizContainer>
+          <QuizLogo />
+          <Widget>
+            <Widget.Header>
+              <h1>{db.title}</h1>
+            </Widget.Header>
+            <Widget.Content>
+              <p>{db.description}</p>
+            </Widget.Content>
+          </Widget>
 
-        <Widget>
-          <Widget.Content>
-            <h1>Quizes da Galera</h1>
+          <Widget>
+            <Widget.Content>
+              <h1>Quizes da Galera</h1>
 
-            <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
-        </Widget>
-        <Footer />
-      </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/rafalmeida73" />
+              <p>lorem ipsum dolor sit amet...</p>
+            </Widget.Content>
+          </Widget>
+          <Footer />
+        </QuizContainer>
+        <BackgroundImage backgroundImage={db.bg} />
+      </Content>
+      <GitHubCorner projectUrl="https://github.com/rafalmeida73/quiz" />
     </QuizBackground>
   );
 }
