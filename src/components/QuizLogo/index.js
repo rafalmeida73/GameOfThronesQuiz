@@ -18,7 +18,7 @@ Logo.propTypes = {
   className: PropTypes.string.isRequired,
 };
 
-const QuizLogo = styled(Logo)`
+export  const QuizLogo = styled(Logo)`
   margin: auto;
   display: block;
   @media screen and (max-width: 500px) {
@@ -28,5 +28,3 @@ const QuizLogo = styled(Logo)`
     fill: ${({ theme }) => theme.colors.primary};
   }
 `;
-
-export default QuizLogo;

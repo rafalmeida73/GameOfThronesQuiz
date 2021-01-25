@@ -1,7 +1,7 @@
 {
-  "bg": "https://firebasestorage.googleapis.com/v0/b/brokenout.appspot.com/o/back2.svg?alt=media&token=2f1a563f-1046-4f02-aecf-2fd45fe79daf",
+  "bg": "./background.svg",
   "title": "Quiz Game of Thrones",
-  "description": "Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nesse série!",
+  "description": "Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!",
   "questions": [
     {
       "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",

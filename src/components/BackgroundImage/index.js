@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-const BackgroundImage = styled.div`
+export const BackgroundImage = styled.div`
   background-size: cover;
   width: 100%;
   background-position: center;
@@ -10,5 +10,3 @@ const BackgroundImage = styled.div`
     background-image: none;
   }
 `;
-
-export default BackgroundImage;

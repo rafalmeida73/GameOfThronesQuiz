@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const QuizBackground = styled.div`
+export const QuizBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,5 +30,3 @@ const QuizBackground = styled.div`
     }
   }
 `;
-
-export default QuizBackground;

@@ -1,0 +1,6 @@
+export { Widget } from './Widget'
+export { QuizLogo } from './QuizLogo'
+export { QuizBackground } from './QuizBackground'
+export { GitHubCorner } from './GithubCorner'
+export { Footer } from './Footer'
+export { BackgroundImage } from './BackgroundImage'
