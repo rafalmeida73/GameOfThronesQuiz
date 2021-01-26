@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -32,6 +33,7 @@ const SVGWrapper = styled.svg`
 `;
 
 // eslint-disable-next-line react/prop-types
+// eslint-disable-next-line import/prefer-default-export
 export function GitHubCorner({ projectUrl }) {
   return (
     <Wrapper>

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const BackgroundImage = styled.div`
   background-size: cover;
   width: 100%;

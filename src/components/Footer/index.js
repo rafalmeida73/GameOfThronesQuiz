@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const FooterWrapper = styled.footer`
   background-color: #00000070;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
   border-radius: 4px; 
@@ -24,7 +24,7 @@ const FooterWrapper = styled.footer`
   }
 `;
 
-export  function Footer(props) {
+export function Footer(props) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <FooterWrapper {...props}>
