@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import db from '../db.json';
 import {
-  Widget, QuizLogo, QuizBackground, Footer, GitHubCorner, BackgroundImage, Form,
+  Widget, QuizLogo, QuizBackground, Footer, GitHubCorner, BackgroundImage,
 } from '../src/components';
 
 const QuizContainer = styled.div`
@@ -24,13 +24,12 @@ const Content = styled.div`
 
 export default function Quiz() {
   const router = useRouter();
-  const [name, setName] = useState('');
+  const [nickname, setNickName] = useState('');
 
-  function onSubmit(e) {
-    router.push(`/quiz?name=${name}`);
-
-    e.preventDefault();
-  }
+  useEffect(() => {
+    const { name } = router.query;
+    setNickName(name);
+  });
 
   return (
     <QuizBackground>
@@ -43,12 +42,7 @@ export default function Quiz() {
             </Widget.Header>
             <Widget.Content>
               <p>{db.description}</p>
-              <Form onSubmit={onSubmit}>
-                <input placeholder="Diz aí seu nome para jogar :)" onChange={(e) => setName(e.target.value)} />
-                <button type="submit" disabled={name.length === 0}>
-                  Jogar
-                </button>
-              </Form>
+              <p>{nickname}</p>
             </Widget.Content>
           </Widget>
           <Footer />
