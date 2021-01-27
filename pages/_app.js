@@ -58,7 +58,7 @@ export default function App({ Component, pageProps }) {
         <meta property="twitter:url" content="https://quiz.rafalmeida73.vercel.app/" />
         <meta property="twitter:title" content="Quiz Game of Thrones" />
         <meta property="twitter:description" content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!" />
-        <meta property="twitter:image" content="/capa.png" />
+        <meta property="twitter:image" content={db.bg} />
       </Head>
 
       <ThemeProvider theme={theme}>
