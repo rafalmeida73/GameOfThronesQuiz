@@ -5,3 +5,8 @@ export { GitHubCorner } from './GitHubCorner';
 export { Footer } from './Footer';
 export { BackgroundImage } from './BackgroundImage';
 export { Form } from './Form';
+export { QuizContainer } from './QuizContainer';
+export { Content } from './Content';
+export { Quizes } from './Quizes';
+export { Button } from './Button';
+export { Loading } from './Loading';

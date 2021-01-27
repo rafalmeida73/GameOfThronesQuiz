@@ -1,33 +1,18 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import db from '../db.json';
 import {
-  Widget, QuizLogo, QuizBackground, Footer, GitHubCorner, BackgroundImage, Form,
+  Widget,
+  QuizLogo,
+  QuizBackground,
+  Footer,
+  GitHubCorner,
+  BackgroundImage,
+  Form,
+  QuizContainer,
+  Content,
+  Quizes,
 } from '../src/components';
-
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
-
-const Content = styled.div`
-  display: flex;
-  width: 100%;
-`;
-
-const Quizes = styled.p`
-   width: 100%;
-   background-color: #141414;
-   padding: 5px;
-   border-radius: 5px;
-`;
 
 export default function Home() {
   const router = useRouter();
@@ -51,7 +36,7 @@ export default function Home() {
             <Widget.Content>
               <p>{db.description}</p>
               <Form onSubmit={onSubmit}>
-                <input placeholder="Diz aí seu nome para jogar :)" onChange={(e) => setName(e.target.value)} />
+                <input name="nome do usuario" placeholder="Diz aí seu nome para jogar :)" onChange={(e) => setName(e.target.value)} />
                 <button type="submit" disabled={name.length === 0}>
                   Jogar
                 </button>

@@ -4,20 +4,56 @@
   "description": "Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
+      "image": "https://s.yimg.com/ny/api/res/1.2/MzS2X94O0JZsIlwS6F3o9Q--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NTAwO2g9Mjcy/http://media.zenfs.com/en-US/homerun/hello_giggles_454/d811688cf1a05ee3b83d9350ba5444e8",
+      "title": "qual a nacionalidade de Robin Arryn?",
       "description": "Essa é pra aquecer",
-      "answer": 2,
-      "alternatives": [".elemento", "*elemento", "#elemento", "%elemento"]
+      "answer": 1,
+      "alternatives": ["Croata", "Brasileiro", "Americano", "Ganês", "Chinês"]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://i.pinimg.com/originals/e6/54/3c/e6543c01dc1bbf01a7ac487b572de593.gif",
+      "title": "Daenerys Targaryen tinha quantos dragões?",
+      "description": "Easy",
+      "answer": 2,
+      "alternatives": ["1", "2", "3", "4", "5"]
+    },
+    {
+      "image": "https://media.giphy.com/media/Zrq2FgRy6w1eU/giphy.gif",
+      "title": "o que significa a palavra hodor?",
+      "description": "Easy",
       "answer": 0,
       "alternatives": [
-        "background: linear-gradient(#e66465, #9198e5);",
-        "background: gradient(#e66465, #9198e5);"
+        "hold the door (Segure a porta)",
+        "hot bloods (Sangue quente)",
+        "hot door (porta quente)",
+        "hot dog (Cachorro-quente)",
+        "Nenhuma das anteriores"
+      ]
+    },
+    {
+      "image": "https://static1.purebreak.com.br/articles/6/35/16/6/@/172887-cersei-foi-coroada-em-game-of-thrones-624x0-2.gif",
+      "title": "Quem terminou no Trono de Ferro?",
+      "description": "Easy",
+      "answer": 0,
+      "alternatives": [
+        "Daenerys Targaryen",
+        "Jon Snow",
+        "Bran Stark",
+        "Cersei Lannister",
+        "Rei da Noite"
+      ]
+    },
+    {
+      "image": "https://pa1.narvii.com/7201/b9fd7db558b291f925d4fe5f8b40d0cad0d0a5f8r1-500-281_hq.gif",
+      "title": "Qual o lema da Casa Greyjoy?",
+      "description": "Difícil",
+      "answer": 4,
+      "alternatives": [
+        "O inverno está chegando",
+        "Fogo e Sangue",
+        "Ouça-me Rugir",
+        "O que está morto não pode morrer",
+        "Nós não semeamos"
       ]
     }
   ],
