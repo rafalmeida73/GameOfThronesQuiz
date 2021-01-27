@@ -50,8 +50,8 @@ export default function App({ Component, pageProps }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://quiz.rafalmeida73.vercel.app/" />
         <meta property="og:title" content="Quiz Game of Thrones" />
-        <meta property="og:description" content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!" />
-        <meta property="og:image" content="/capa.png" />
+        <meta property="og:description" content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!" />
+        <meta property="og:image" content={db.bg} />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
