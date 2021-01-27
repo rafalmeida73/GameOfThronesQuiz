@@ -20,8 +20,8 @@ function QuestionsWidget({
   questionIndex,
   onSubmit,
 }) {
-  let r;
   const questionId = `question__${questionIndex}`;
+  const [choice, setChoice] = useState();
   return (
     <Widget>
       <Widget.Header>
@@ -52,11 +52,11 @@ function QuestionsWidget({
         <form
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
-            onSubmit(infosDoEvento);
+            onSubmit(choice);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
-            const alternativeId = `alternative__${alternativeIndex}`;
+            const alternativeId = alternativeIndex;
             return (
               <Widget.Topic
                 as="label"
@@ -66,7 +66,7 @@ function QuestionsWidget({
                   id={alternativeId}
                   name={questionId}
                   type="radio"
-                  onClick={() => r === alternative}
+                  onChange={() => setChoice(alternativeId)}
                 />
                 {alternative}
               </Widget.Topic>
@@ -92,6 +92,7 @@ export default function Quiz() {
   const router = useRouter();
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [right, setRight] = useState(0);
   const questionIndex = currentQuestion;
   const [nickname, setNickName] = useState('');
   const totalQuestions = db.questions.length;
@@ -101,9 +102,11 @@ export default function Quiz() {
     const { name } = router.query;
     setNickName(name);
 
-    setTimeout(() => {
-      setScreenState(screenStates.QUIZ);
-    }, 2 * 1000);
+    if (screenState === 'LOADING') {
+      setTimeout(() => {
+        setScreenState(screenStates.QUIZ);
+      }, 2 * 1000);
+    }
   });
 
   function LoadingWidget() {
@@ -120,13 +123,23 @@ export default function Quiz() {
     );
   }
 
-  function handleSubmitQuiz() {
+  function handleSubmitQuiz(e) {
+    if (db.questions[questionIndex].answer === e) {
+      setRight(right + 1);
+    }
+
     const nextQuestion = questionIndex + 1;
     if (nextQuestion < totalQuestions) {
       setCurrentQuestion(nextQuestion);
     } else {
       setScreenState(screenStates.RESULT);
     }
+  }
+
+  function PlayAgain() {
+    setRight(0);
+    setCurrentQuestion(0);
+    setScreenState(screenStates.QUIZ);
   }
 
   return (
@@ -146,12 +159,23 @@ export default function Quiz() {
 
           {screenState === screenStates.LOADING && <LoadingWidget />}
           {screenState === screenStates.RESULT && (
-            <div>
-              Você acertou X questões, parabéns
-              {' '}
-              {nickname}
-              !
-            </div>
+            <Widget>
+              <Widget.Header>
+                <h3>
+                  {`Parabéns, ${nickname}!`}
+                </h3>
+              </Widget.Header>
+
+              <Widget.Content>
+                <p>
+                  {` Você acertou ${right} questões de ${totalQuestions}!`}
+                </p>
+
+                <Button onClick={PlayAgain}>
+                  Jogar novamente
+                </Button>
+              </Widget.Content>
+            </Widget>
           )}
         </QuizContainer>
         <BackgroundImage backgroundImage={db.bg} />

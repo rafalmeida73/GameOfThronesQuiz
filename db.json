@@ -5,7 +5,7 @@
   "questions": [
     {
       "image": "https://s.yimg.com/ny/api/res/1.2/MzS2X94O0JZsIlwS6F3o9Q--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NTAwO2g9Mjcy/http://media.zenfs.com/en-US/homerun/hello_giggles_454/d811688cf1a05ee3b83d9350ba5444e8",
-      "title": "qual a nacionalidade de Robin Arryn?",
+      "title": "Qual a nacionalidade de Robin Arryn?",
       "description": "Essa é pra aquecer",
       "answer": 1,
       "alternatives": ["Croata", "Brasileiro", "Americano", "Ganês", "Chinês"]
@@ -19,7 +19,7 @@
     },
     {
       "image": "https://media.giphy.com/media/Zrq2FgRy6w1eU/giphy.gif",
-      "title": "o que significa a palavra hodor?",
+      "title": "O que significa a palavra hodor?",
       "description": "Easy",
       "answer": 0,
       "alternatives": [
@@ -34,7 +34,7 @@
       "image": "https://static1.purebreak.com.br/articles/6/35/16/6/@/172887-cersei-foi-coroada-em-game-of-thrones-624x0-2.gif",
       "title": "Quem terminou no Trono de Ferro?",
       "description": "Easy",
-      "answer": 0,
+      "answer": 2,
       "alternatives": [
         "Daenerys Targaryen",
         "Jon Snow",
