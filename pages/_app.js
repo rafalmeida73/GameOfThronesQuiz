@@ -43,6 +43,22 @@ export default function App({ Component, pageProps }) {
         <meta name="googlebot" content="noindex" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+        <meta name="title" content="Quiz Game of Thrones" />
+        <meta name="description" content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://quiz.rafalmeida73.vercel.app/" />
+        <meta property="og:title" content="Quiz Game of Thrones" />
+        <meta property="og:description" content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!" />
+        <meta property="og:image" content="/capa.png" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://quiz.rafalmeida73.vercel.app/" />
+        <meta property="twitter:title" content="Quiz Game of Thrones" />
+        <meta property="twitter:description" content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!" />
+        <meta property="twitter:image" content="/capa.png" />
       </Head>
 
       <ThemeProvider theme={theme}>
