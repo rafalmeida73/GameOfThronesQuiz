@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+/* eslint-disable linebreak-style */
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import useSound from 'use-sound';
 import db from '../db.json';
 import {
   Widget,
@@ -17,6 +19,11 @@ import {
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState('');
+  const [play] = useSound('/got.mp3', { volume: 0.1 });
+
+  useEffect(() => {
+    play();
+  });
 
   function onSubmit(e) {
     router.push(`/quiz?name=${name}`);
