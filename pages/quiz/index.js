@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import db from '../db.json';
+import db from '../../db.json';
 import {
   Widget,
   QuizLogo,
   QuizBackground,
   GitHubCorner,
-  BackgroundImage,
   QuizContainer,
   Content,
   Button,
   Loading,
   AlternativesForm,
-} from '../src/components';
+  BackLinkArrow,
+} from '../../src/components';
 
 function QuestionsWidget({
   question,
@@ -31,7 +31,7 @@ function QuestionsWidget({
   return (
     <Widget>
       <Widget.Header>
-        {/* <BackLinkArrow href="/" /> */}
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -118,11 +118,6 @@ export default function Quiz() {
 
   useEffect(() => {
     const { name } = router.query;
-
-    if (name === undefined) {
-      router.push('/');
-    }
-
     setNickName(name);
 
     if (screenState === 'LOADING') {
@@ -146,7 +141,7 @@ export default function Quiz() {
         <Widget.Header>
           <h3>
             {results.filter((x) => x).length > 0 ? 'Parabéns' : 'Não foi dessa vez'}
-            {', '}
+            {' '}
             <strong style={{ textTransform: 'capitalize' }}>{nickname}</strong>
             !
           </h3>
@@ -203,7 +198,7 @@ export default function Quiz() {
   }
 
   return (
-    <QuizBackground>
+    <QuizBackground backgroundImage={db.bg}>
       <Content>
         <QuizContainer>
           <QuizLogo />
@@ -223,7 +218,6 @@ export default function Quiz() {
             <ResultWidget results={results} />
           )}
         </QuizContainer>
-        <BackgroundImage backgroundImage={db.bg} />
       </Content>
       <GitHubCorner projectUrl="https://github.com/rafalmeida73/quiz" />
     </QuizBackground>

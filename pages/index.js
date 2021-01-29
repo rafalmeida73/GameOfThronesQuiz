@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import useSound from 'use-sound';
+import { motion } from 'framer-motion';
 import db from '../db.json';
 import {
   Widget,
@@ -9,21 +9,15 @@ import {
   QuizBackground,
   Footer,
   GitHubCorner,
-  BackgroundImage,
   Form,
   QuizContainer,
   Content,
-  Quizes,
 } from '../src/components';
+import Link from '../src/components/Link';
 
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState('');
-  const [play] = useSound('/got.mp3', { volume: 0.1 });
-
-  useEffect(() => {
-    play();
-  });
 
   function onSubmit(e) {
     router.push(`/quiz?name=${name}`);
@@ -32,11 +26,20 @@ export default function Home() {
   }
 
   return (
-    <QuizBackground>
+    <QuizBackground backgroundImage={db.bg}>
       <Content>
         <QuizContainer>
           <QuizLogo />
-          <Widget>
+          <Widget
+            as={motion.section}
+            transition={{ delay: 0, duration: 0.5 }}
+            variants={{
+              show: { opacity: 1, y: '0' },
+              hidden: { opacity: 0, y: '100%' },
+            }}
+            initial="hidden"
+            animate="show"
+          >
             <Widget.Header>
               <h1>{db.title}</h1>
             </Widget.Header>
@@ -51,27 +54,47 @@ export default function Home() {
             </Widget.Content>
           </Widget>
 
-          <Widget>
+          <Widget
+            as={motion.section}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            variants={{
+              show: { opacity: 1 },
+              hidden: { opacity: 0 },
+            }}
+            initial="hidden"
+            animate="show"
+          >
             <Widget.Content>
               <h1>Quizes da Galera</h1>
               <p style={{ marginBottom: '25px' }}>
-                Dá uma olhada nesses quizes incríveis que o pessoal da Imersão Alguma coisa fez:
+                Dá uma olhada nesses quizes incríveis que o pessoal da Imersão Alura fez:
               </p>
-              <Quizes>
-                clebinhodj/showdomilhaoalura
-              </Quizes>
-              <Quizes>
-                clebinhodj/showdomilhaoalura
-              </Quizes>
-              <Quizes>
-                clebinhodj/showdomilhaoalura
-              </Quizes>
+
+              <ul>
+                {db.external.map((linkExterno) => {
+                  const [projectName, githubUser] = linkExterno
+                    .replace(/\//g, '')
+                    .replace('https:', '')
+                    .replace('.vercel.app', '')
+                    .split('.');
+
+                  return (
+                    <li key={linkExterno}>
+                      <Widget.Topic
+                        as={Link}
+                        href={`/quiz/${projectName}___${githubUser}`}
+                      >
+                        {`${githubUser}/${projectName}`}
+                      </Widget.Topic>
+                    </li>
+                  );
+                })}
+              </ul>
 
             </Widget.Content>
           </Widget>
           <Footer />
         </QuizContainer>
-        <BackgroundImage backgroundImage={db.bg} />
       </Content>
       <GitHubCorner projectUrl="https://github.com/rafalmeida73/quiz" />
     </QuizBackground>

@@ -57,7 +57,11 @@
       ]
     }
   ],
-  "external": [""],
+  "external": [
+    "https://alura-quiz.luizf-lf.vercel.app",
+  "https://quiz-react.brenoha.vercel.app",
+  "https://mrrobot-quiz.xandowski.vercel.app"
+  ],
   "theme": {
     "colors": {
       "primary": "#A62121",
