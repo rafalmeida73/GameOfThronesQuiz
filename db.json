@@ -1,5 +1,5 @@
 {
-  "bg": "./background.svg",
+  "bg": "https://firebasestorage.googleapis.com/v0/b/brokenout.appspot.com/o/background.svg?alt=media&token=249beb72-c8f0-4ca7-b66c-997401ed33ff",
   "title": "Quiz Game of Thrones",
   "description": "Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!",
   "questions": [
@@ -59,8 +59,8 @@
   ],
   "external": [
     "https://alura-quiz.luizf-lf.vercel.app",
-  "https://quiz-react.brenoha.vercel.app",
-  "https://mrrobot-quiz.xandowski.vercel.app"
+    "https://pokemonquiz.tilnoene.vercel.app",
+    "https://mrrobot-quiz.xandowski.vercel.app"
   ],
   "theme": {
     "colors": {

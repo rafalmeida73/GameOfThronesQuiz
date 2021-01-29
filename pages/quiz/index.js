@@ -139,6 +139,7 @@ export default function Quiz() {
     return (
       <Widget>
         <Widget.Header>
+          <BackLinkArrow href="/" />
           <h3>
             {results.filter((x) => x).length > 0 ? 'Parabéns' : 'Não foi dessa vez'}
             {' '}
@@ -198,12 +199,13 @@ export default function Quiz() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <Content>
-        <QuizContainer>
-          <QuizLogo />
+    <>
+      <QuizBackground backgroundImage={db.bg}>
+        <Content>
+          <QuizContainer>
+            <QuizLogo />
 
-          {screenState === screenStates.QUIZ && (
+            {screenState === screenStates.QUIZ && (
             <QuestionsWidget
               question={question}
               totalQuestions={totalQuestions}
@@ -211,15 +213,16 @@ export default function Quiz() {
               onSubmit={handleSubmitQuiz}
               addResult={addResult}
             />
-          )}
+            )}
 
-          {screenState === screenStates.LOADING && <LoadingWidget />}
-          {screenState === screenStates.RESULT && (
+            {screenState === screenStates.LOADING && <LoadingWidget />}
+            {screenState === screenStates.RESULT && (
             <ResultWidget results={results} />
-          )}
-        </QuizContainer>
-      </Content>
-      <GitHubCorner projectUrl="https://github.com/rafalmeida73/quiz" />
-    </QuizBackground>
+            )}
+          </QuizContainer>
+        </Content>
+        <GitHubCorner projectUrl="https://github.com/rafalmeida73/quiz" />
+      </QuizBackground>
+    </>
   );
 }

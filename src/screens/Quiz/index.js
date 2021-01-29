@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-// import db from '../../../db.json';
+import Head from 'next/head';
 import {
   Widget,
   QuizLogo,
@@ -107,7 +107,9 @@ const screenStates = {
   LOADING: 'LOADING',
   RESULT: 'RESULT',
 };
-export default function Quiz({ externalQuestions, externalBg }) {
+export default function Quiz({
+  externalQuestions, externalBg, title, secondaryColor, description,
+}) {
   const router = useRouter();
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -141,6 +143,7 @@ export default function Quiz({ externalQuestions, externalBg }) {
     return (
       <Widget>
         <Widget.Header>
+          <BackLinkArrow href="/" />
           <h3>
             {results.filter((x) => x).length > 0 ? 'Parabéns' : 'Não foi dessa vez'}
             {' '}
@@ -200,12 +203,42 @@ export default function Quiz({ externalQuestions, externalBg }) {
   }
 
   return (
-    <QuizBackground backgroundImage={externalBg}>
-      <Content>
-        <QuizContainer>
-          <QuizLogo />
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="theme-color" content={secondaryColor} />
+        <meta
+          name="description"
+          content={description}
+        />
+        <meta name="robots" content="noindex" />
+        <meta name="googlebot" content="noindex" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
 
-          {screenState === screenStates.QUIZ && (
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://quiz.rafalmeida73.vercel.app/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={externalBg} />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://quiz.rafalmeida73.vercel.app/" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={externalBg} />
+      </Head>
+
+      <QuizBackground backgroundImage={externalBg}>
+        <Content>
+          <QuizContainer>
+            <QuizLogo />
+
+            {screenState === screenStates.QUIZ && (
             <QuestionsWidget
               question={question}
               totalQuestions={totalQuestions}
@@ -213,15 +246,16 @@ export default function Quiz({ externalQuestions, externalBg }) {
               onSubmit={handleSubmitQuiz}
               addResult={addResult}
             />
-          )}
+            )}
 
-          {screenState === screenStates.LOADING && <LoadingWidget />}
-          {screenState === screenStates.RESULT && (
+            {screenState === screenStates.LOADING && <LoadingWidget />}
+            {screenState === screenStates.RESULT && (
             <ResultWidget results={results} />
-          )}
-        </QuizContainer>
-      </Content>
-      <GitHubCorner projectUrl="https://github.com/rafalmeida73/quiz" />
-    </QuizBackground>
+            )}
+          </QuizContainer>
+        </Content>
+        <GitHubCorner projectUrl="https://github.com/rafalmeida73/quiz" />
+      </QuizBackground>
+    </>
   );
 }

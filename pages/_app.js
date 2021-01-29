@@ -33,32 +33,32 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Quiz Game of Thrones</title>
-        <meta name="theme-color" content="#ffffff" />
+        <title>{db.title}</title>
+        <meta name="theme-color" content={db.theme.colors.secondary} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!"
+          content={db.description}
         />
         <meta name="robots" content="noindex" />
         <meta name="googlebot" content="noindex" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
-        <meta name="title" content="Quiz Game of Thrones" />
-        <meta name="description" content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!" />
+        <meta name="title" content={db.title} />
+        <meta name="description" content={db.description} />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://quiz.rafalmeida73.vercel.app/" />
-        <meta property="og:title" content="Quiz Game of Thrones" />
-        <meta property="og:description" content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!" />
+        <meta property="og:title" content={db.title} />
+        <meta property="og:description" content={db.description} />
         <meta property="og:image" content={db.bg} />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://quiz.rafalmeida73.vercel.app/" />
-        <meta property="twitter:title" content="Quiz Game of Thrones" />
-        <meta property="twitter:description" content="Teste os seus conhecimentos sobre Game of Thrones e vamos ver o quanto você é viciado nessa série!" />
+        <meta property="twitter:title" content={db.title} />
+        <meta property="twitter:description" content={db.description} />
         <meta property="twitter:image" content={db.bg} />
       </Head>
 
